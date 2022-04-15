@@ -1,0 +1,5 @@
+local Finity = loadstring(game:HttpGet("https://raw.githubusercontent.com/Auickcode/FinityLibNewLoadstring/main/FinityLib.lua"))()
+
+--[[
+https://detourious.gitbook.io/project-finity/tutorials/tutorial
+]]
