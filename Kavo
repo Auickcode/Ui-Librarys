@@ -1,0 +1,23 @@
+local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
+
+local Window = Library.CreateLib("Tutorial kavo", "Synapse")
+
+local Tab1 = Window:NewTab("Main")
+
+local Section1 = Tab1:NewSection("Random stuff")
+
+Section1:NewButton("Random ahh button 💀", "Button", function()
+    print("Clicked")
+end)
+
+Section1:NewToggle("Random ahh toggle 💀", "Toggle", function(state)
+    if state then
+        print("Toggle On")
+    else
+        print("Toggle Off")
+    end
+end)
+
+Section1:NewSlider("Random ahh slider 💀", "Slider", 500, 0, function(s) -- 500 (MaxValue) | 0 (MinValue)
+    game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = s
+end)
