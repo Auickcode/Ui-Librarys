@@ -1,0 +1,92 @@
+local Material = loadstring(game:HttpGet("https://raw.githubusercontent.com/Kinlei/MaterialLua/master/Module.lua"))()
+
+local UI = Material.Load({
+     Title = "Test",
+     Style = 3,
+     SizeX = 450,
+     SizeY = 300,
+     Theme = "Light"
+})
+
+local Page = UI.New({
+    Title = "Tutorial"
+})
+
+Page.Button({
+    Text = "Button",
+    Callback = function()
+       print('Clicked!')
+    end,
+    Menu = {
+        Information = function(self)
+            UI.Banner({
+                Text = "This is some information"            
+            })
+        end,
+        Test = function(self) 
+            table.foreach(self, print)
+        end
+    }
+})
+
+Page.Toggle({
+    Text = "Toggle",
+    Callback = function(Value)
+        print(Value)
+    end,
+    Enabled = false
+})
+
+Page.Slider({
+    Text = "Slider",
+    Callback = function(Value)
+        print(Value)
+    end,
+    Min = 1,
+    Max = 400,
+    Def = 1
+})
+
+Page.Dropdown({
+    Text = "Drop down",
+    Callback = function(Value)
+        print(Value)
+    end,
+    Options = {
+        "Drop 1",
+        "Drop 2",
+        "Drop 3",
+        "Drop 4",
+        "Drop"
+    },
+    Menu = {
+        Information = function(self)
+            X.Banner({
+                Text = "Ez!"
+            })
+        end
+    }
+})
+
+Page.ChipSet({
+    Text = "Chip set",
+    Callback = function(ChipSet)
+        table.foreach(ChipSet, function(Option, Value)
+            print(Option, Value)
+        end)
+    end,
+    Options = {
+        ESP = true,
+        TeamCheck = false,
+        UselessBool = {
+            Enabled = true,
+            Menu = {
+                Information = function(self)
+                    X.Banner({
+                        Text = "This bool has absolutely no purpose whatsoever."
+                    })
+                end
+            }
+        }
+    }
+})
